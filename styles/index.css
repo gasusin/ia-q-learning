@@ -1,0 +1,100 @@
+
+
+body {
+  background: #f5f5f5;
+  font-size: 13px;
+}
+
+header,footer{
+  background-color: #e6e600;
+}
+
+a.navbar-brand, a.nav-link, .footer-copyright, .link-footer {
+  color: #fff;
+}
+
+.container-fluid{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#postTwo, #postThree{
+  padding-top: 40px;
+}
+
+.card{
+  margin: auto;
+}
+
+iframe{
+  margin: auto;
+}
+
+#form textarea, #form input{
+  margin: auto;
+  margin-top: 30px;
+}
+
+#postPage .btn{
+  margin: 30px 0;
+}
+
+#postPage h1{
+  color: #666;
+  letter-spacing: 1.5px;
+}
+
+#postPage{
+  height: calc(100vh - 112px);
+}
+
+.line-post{
+    padding-top: 20px;
+    width: 35%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.divPost {
+  background-color: #fff;
+  padding: 10px;
+  border:1px solid #ccc;
+  word-break: break-all;
+}
+
+.stilaoDaPorra {
+  text-align: right;
+  font-size: 9.8px;
+  font-weight: bold;
+}
+
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.centerfocus {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.wow-title {
+  background-color: #e6e600;
+}
+
+.wow-title-mod-2 {
+  background-color: black;
+}
+
+.cblack {
+  color: black !important;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.title-mod-2 {
+  color: #e6e600;
+}
