@@ -894,7 +894,10 @@ $(document).ready(() => {
 		for (let i = 0; i < 100; i++) {
 			qTable.forEach(e => {
 				if (e.s == parseInt(posini)) {
-					posacoes[s] = ;
+					posacoes.push({
+						posicao : controlador,
+						r : e.p
+					})
 				}
 			});
 		}
