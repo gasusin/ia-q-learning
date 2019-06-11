@@ -877,7 +877,7 @@ $(document).ready(() => {
 
 	$('.algoritmo-qlearning').on('click', (click) => {
 	
-		var r = [
+		var rTable = [
 			{s: 1, p: 0}, {s: 11, p: -1}, {s:21, p: -100}, {s:31, p: -100}, {s:41, p: -100},
 			{s: 2, p: -1}, {s: 12, p: -1}, {s:22, p: -1}, {s:32, p: -1}, {s:42, p: -1},
 			{s: 3, p: -1}, {s: 13, p: -1}, {s:23, p: -1}, {s:33, p: -1}, {s:43, p: -1},
@@ -894,7 +894,7 @@ $(document).ready(() => {
 		var posicoes = []
 		// var posini = $('#qlearning_val').val()
 	
-		for (let i = 0; i < 100; i++) {
+		// for (let i = 0; i < 100; i++) {
 			// var controle = 0 
 
 			// qTable.forEach(e => {
@@ -928,10 +928,12 @@ $(document).ready(() => {
 			// 	goTo = posicoes[pos]
 			// }
 			var goTo = this.valoresQAcao(qTable, posini)
-			
-			console.log(goTo)
 			console.log(qTable[goTo.posicao])
-		}
+			goTo = qTable[goTo.posicao]
+			var valorAcao = this.buscaValorAcao(rTable, goTo.a)
+			console.log(goTo)
+			console.log(valorAcao)
+		// }
 	})
 })
 
@@ -958,6 +960,18 @@ function randomIntFromInterval(min, max) {
 
 // Fazer função que busca o valor da tabela
 function buscaValorAcao(tabelaR, a) {
+
+	var valorAcao = null;
+	console.log(a)
+	for (const r of tabelaR) {
+		console.log(r.s)
+		if (r.s == a) {
+			console.log("oitiseti")
+			valorAcao = r.p
+		} 
+	}
+
+	return valorAcao
 
 }
 
