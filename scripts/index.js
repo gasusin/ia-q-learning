@@ -1,5 +1,8 @@
 $(document).ready(() => {
-		// Submit comment post
+	// Submit comment post
+
+	var posini = 1
+	var lastPos = 1
 
 	var qTable = [
 		{
@@ -9,7 +12,7 @@ $(document).ready(() => {
 		},
 		{
 			s: 1,
-			a : 110,
+			a : 10,
 			r  : 0
 		},
 		{
@@ -887,21 +890,111 @@ $(document).ready(() => {
 			{s: 10, p: -100}, {s: 20, p: -100}, {s:30, p: -100}, {s:40, p: -100}, {s:50, p: 100}
 		]
 	
-		var gama = 0.5
-		var posacoes = []
-		var posini = $('#qlearning_val').val()
+		var gama = 0.8
+		var posicoes = []
+		// var posini = $('#qlearning_val').val()
 	
 		for (let i = 0; i < 100; i++) {
-			qTable.forEach(e => {
-				if (e.s == parseInt(posini)) {
-					posacoes.push({
-						posicao : controlador,
-						r : e.p
-					})
-				}
-			});
+			// var controle = 0 
+
+			// qTable.forEach(e => {
+			// 	if (e.s == parseInt(posini)) {
+			// 		posicoes.push({
+			// 			posicao : controle,
+			// 			r : e.r
+			// 		})
+			// 	}
+
+			// 	controle += 1
+			// })
+
+			// var goTo = null
+			// var valoresIguais = this.valoresIguais(posicoes)
+
+			// if (valoresIguais == false) {
+
+			// 	posicoes.forEach(p => {
+			// 		if (goTo == null) {
+			// 			goTo = p
+			// 		}
+
+			// 		if (goTo.r < p.r) {
+			// 			goTo = p
+			// 		}
+			// 	})
+
+			// } else {
+			// 	pos = this.randomIntFromInterval(0, posicoes.length - 1)
+			// 	goTo = posicoes[pos]
+			// }
+			var goTo = this.valoresQAcao(qTable, posini)
+			
+			console.log(goTo)
+			console.log(qTable[goTo.posicao])
 		}
 	})
-});
+})
 
+function valoresIguais(valoresEscolhidos) {
+	var valoresIguais = true
+	var valor = null
+	
+	valoresEscolhidos.forEach(e => {
+		if (valor == null) {
+			valor = e.r	
+		}
 
+		if (valor != e.r) {
+			valoresIguais = false
+		}
+	})
+
+	return valoresIguais
+}
+
+function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+// Fazer função que busca o valor da tabela
+function buscaValorAcao(tabelaR, a) {
+
+}
+
+// Verifica o segundo Q
+function valoresQAcao(qTable, posicaoAtual) {
+	
+	var controleQTable = 0
+	var posicoes = [] // posições dos elementos na tabela Q-Table (qTable)
+
+	qTable.forEach(e => {
+		if (e.s == parseInt(posicaoAtual)) {
+			posicoes.push({
+				posicao : controleQTable,
+				r : e.r
+			})
+		}
+		controleQTable += 1
+	})
+
+	var posicaoEscolhida = null
+	var valoresIguais = this.valoresIguais(posicoes)
+
+	if (valoresIguais == false) {
+		posicoes.forEach(p => {
+			if (posicaoEscolhida == null) {
+				posicaoEscolhida = p
+			}
+
+			if (posicaoEscolhida.r < p.r) {
+				posicaoEscolhida = p
+			}
+		})
+	} else {
+		pos = this.randomIntFromInterval(0, posicoes.length - 1)
+		posicaoEscolhida = posicoes[pos]
+	}
+
+	return posicaoEscolhida
+
+}
