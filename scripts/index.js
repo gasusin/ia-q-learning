@@ -875,8 +875,6 @@ $(document).ready(() => {
 				parentdiv.prepend(conteudo);
 
 			}
-
-
 		});
 	});
 
@@ -929,9 +927,11 @@ $(document).ready(() => {
 			}
 		}
 
-		document.getElementById("divInteracoes").innerHTML = "<label for='totalInteracoes'> Número de Interações: " + nroInteracoes + "</label>"
+		document.getElementById("divInteracoes").innerHTML = "<label for='totalInteracoes'> <b>Número de Interações: " + nroInteracoes + "</b></label>"
 
-		
+		// Fazer laço para mostrar a tabela Q-Table Dinamicamente
+		// Usei a tabela do bootstrap, tá ali na page Q-Learning, abaixo do botão 
+		// de cálculo do Q-Table.
 	})
 
 })
