@@ -882,6 +882,9 @@ $(document).ready(() => {
 
 	$('.algoritmo-qlearning').on('click', (click) => {
 	
+		posini = 1
+		nroInteracoes = 0
+
 		var rTable = [
 			{s: 1, p: 0}, {s: 11, p: -1}, {s:21, p: -100}, {s:31, p: -100}, {s:41, p: -100},
 			{s: 2, p: -1}, {s: 12, p: -1}, {s:22, p: -1}, {s:32, p: -1}, {s:42, p: -1},
@@ -926,7 +929,11 @@ $(document).ready(() => {
 			}
 		}
 
+		document.getElementById("divInteracoes").innerHTML = "<label for='totalInteracoes'> Número de Interações: " + nroInteracoes + "</label>"
+
+		
 	})
+
 })
 
 function valoresIguais(valoresEscolhidos) {
@@ -1007,7 +1014,7 @@ function valoresQAcao(qTable, posicaoAtual) {
 	if(randommax <= 70) {
 		return posicaoEscolhida
 	} else {
-		posicoes.splice(posicaoEscolhida, 1)
+		// posicoes.splice(posicaoEscolhida, 1)
 
 		pos = this.randomIntFromInterval(0, posicoes.length - 1)
 		posicaoEscolhida = posicoes[pos]
